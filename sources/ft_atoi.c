@@ -6,11 +6,11 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:14:29 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/06 19:36:12 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../include/libft.h"
 
 int	ft_atoi(const char *str)
 {

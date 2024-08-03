@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 12:43:20 by cmassol           #+#    #+#             */
-/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
+/*   Created: 2024/08/01 09:35:29 by cmassol           #+#    #+#             */
+/*   Updated: 2024/08/03 18:40:46 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putptr(uintptr_t ptr, int *totalchar)
 {
-	size_t	needle_len;
+	unsigned long	nbr;
+	char			c;
 
-	needle_len = ft_strlen(needle);
-	if (!*needle)
-		return ((char *)haystack);
-	while (*haystack && len >= needle_len)
+	nbr = (unsigned long)ptr;
+	if (nbr > 15)
 	{
-		if (*haystack == *needle
-			&& (ft_strncmp(haystack, needle, needle_len) == 0))
-			return ((char *)haystack);
-		haystack++;
-		len--;
+		ft_putptr((nbr / 16), totalchar);
+		ft_putptr((nbr % 16), totalchar);
 	}
-	return (NULL);
+	else if (nbr < 16)
+	{
+		if (nbr < 10)
+			c = (char)(nbr + '0');
+		else
+			c = (char)(nbr + 'a' - 10);
+		write(1, &c, 1);
+		(*totalchar)++;
+	}
 }

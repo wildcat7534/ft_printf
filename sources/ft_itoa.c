@@ -6,11 +6,11 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:37:50 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/06 19:50:29 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../include/libft.h"
 
 static	size_t	ft_len(long n)
 {
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 }
 
 /*
-#include "../headers/libft.h"
+#include "../include/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 

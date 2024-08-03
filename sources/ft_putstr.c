@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 12:43:20 by cmassol           #+#    #+#             */
-/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
+/*   Created: 2024/07/17 21:32:02 by cmassol           #+#    #+#             */
+/*   Updated: 2024/08/03 18:40:04 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putstr(char *s, int *totalchar)
 {
-	size_t	needle_len;
+	int	i;
 
-	needle_len = ft_strlen(needle);
-	if (!*needle)
-		return ((char *)haystack);
-	while (*haystack && len >= needle_len)
+	i = 0;
+	if (s == NULL)
 	{
-		if (*haystack == *needle
-			&& (ft_strncmp(haystack, needle, needle_len) == 0))
-			return ((char *)haystack);
-		haystack++;
-		len--;
+		s = "(null)";
+		while (s[i])
+			ft_putcharlen(s[i++], totalchar);
+		return ;
 	}
-	return (NULL);
+	while (s[i])
+		ft_putcharlen(s[i++], totalchar);
 }

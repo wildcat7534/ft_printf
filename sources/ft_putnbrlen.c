@@ -6,32 +6,37 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:45:59 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/11 17:27:12 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/03 18:38:14 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../include/ft_printf.h"
 
-void	ft_putnbrlen_fd(int n, int fd, int *totalchar)
+void	ft_putnbrlen(long n, int *totalchar)
 {
-	long	nbr;
 	char	c;
 
-	nbr = n;
-	if (nbr < 0)
+	if (n == -2147483648 || n == (int)-2147483648)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = -nbr;
+		write(1, "-2147483648", 11);
+		*totalchar += 11;
+		return ;
 	}
-	else if (nbr >= 10)
+	if (n < 0)
 	{
-		ft_putnbrlen_fd(nbr / 10, fd, totalchar);
-		ft_putnbrlen_fd((char)nbr % 10, fd, totalchar);
+		ft_putcharlen('-', totalchar);
+		n = n * -1;
+		ft_putnbrlen(n, totalchar);
 	}
-	else if (nbr < 10)
+	else if (n > 9)
 	{
-		c = (char)(nbr + '0');
-		write(fd, &c, fd);
+		ft_putnbrlen(n / 10, totalchar);
+		ft_putnbrlen(n % 10, totalchar);
+	}
+	else if (n < 10)
+	{
+		c = (char)(n + '0');
+		write(1, &c, 1);
 		(*totalchar)++;
 	}
 }

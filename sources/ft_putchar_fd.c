@@ -6,11 +6,11 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 22:23:22 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/06 19:48:51 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../include/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

@@ -6,14 +6,17 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:54:50 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/11 17:27:12 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:43:42 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../include/ft_printf.h"
 
-void	ft_putcharlen_fd(char c, int fd, int *totalchar)
+void	ft_putcharlen(char c, int *totalchar)
 {
-	write(fd, &c, 1);
+	if (c == '\0')
+		write(1, "\0", 1);
+	else
+		write(1, &c, 1);
 	(*totalchar)++;
 }

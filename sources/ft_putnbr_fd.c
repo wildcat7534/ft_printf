@@ -6,23 +6,21 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 22:26:30 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/06 19:50:29 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/03 18:42:43 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../include/libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int nbr, int fd)
 {
-	long	nbr;
-
-	nbr = n;
 	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = -nbr;
+		nbr = nbr * -1;
+		ft_putnbr_fd(nbr, fd);
 	}
-	if (nbr >= 10)
+	if (nbr > 9)
 	{
 		ft_putnbr_fd(nbr / 10, fd);
 		ft_putchar_fd(nbr % 10 + '0', fd);

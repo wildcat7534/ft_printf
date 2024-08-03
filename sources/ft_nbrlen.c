@@ -6,11 +6,11 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 19:34:21 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/11 17:27:12 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/03 18:38:49 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../include/ft_printf.h"
 
 int	ft_nbrlen(int nbr)
 {

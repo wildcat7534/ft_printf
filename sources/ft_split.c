@@ -6,11 +6,11 @@
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:38:02 by cmassol           #+#    #+#             */
-/*   Updated: 2024/06/06 19:50:29 by cmassol          ###   ########.fr       */
+/*   Updated: 2024/08/03 18:43:45 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../include/libft.h"
 
 static	size_t	ft_word_len(char const *s, char c)
 {
@@ -70,7 +70,7 @@ char	**ft_split(char const *s, char c)
 	while (++i < ft_nb_words(s, c))
 	{
 		while (s[j] && s[j] == c)
-		j++;
+			j++;
 		tab_str[i] = ft_substr(s, j, ft_word_len(&s[j], c));
 		if (!tab_str[i])
 			return (ft_free(tab_str, i));

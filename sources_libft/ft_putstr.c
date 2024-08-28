@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrbase.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 14:19:12 by cmassol           #+#    #+#             */
-/*   Updated: 2024/08/03 18:41:55 by cmassol          ###   ########.fr       */
+/*   Created: 2024/07/17 21:32:02 by cmassol           #+#    #+#             */
+/*   Updated: 2024/08/25 16:46:44 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putnbrbase(unsigned int n, int *totalchar, char param)
+void	ft_putstr(char *s)
 {
-	char			tab17[17];
-	char			*base;
-	unsigned int	base_len;
-	int				k;
+	int	i;
 
-	base = "0123456789abcdef";
-	if (param == 'X')
-		base = "0123456789ABCDEF";
-	base_len = ft_strlen(base);
-	if (n == 0)
+	i = 0;
+	if (s == NULL)
 	{
-		ft_putcharlen('0', totalchar);
+		s = "(null)";
+		while (s[i])
+			ft_putchar(s[i++]);
 		return ;
 	}
-	k = 16;
-	tab17[k] = '\0';
-	while (n > 0)
-	{
-		tab17[--k] = base[n % base_len];
-		n = n / base_len;
-	}
-	while (tab17[k])
-		ft_putcharlen(tab17[k++], totalchar);
+	while (s[i])
+		ft_putchar(s[i++]);
 }

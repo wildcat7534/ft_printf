@@ -2,7 +2,9 @@ NAME = libftprintf.a
 
 HEADERS = /libft.h ft_printf.h
 
-SOURCES = $(wildcard sources/ft_*.c)
+SOURCES = sources_ft_printf/ft_printf.c sources_ft_printf/ft_putcharlen.c sources_ft_printf/ft_putnbrhexlen.c \
+		sources_ft_printf/ft_putnbrlen.c sources_ft_printf/ft_putptrlen.c sources_ft_printf/ft_putstrlen.c \
+		sources_libft/ft_strlen.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -38,10 +40,11 @@ $(NAME): $(OBJECTS)
 
 clean:
 	$(RM) $(OBJECTS)
+	@echo "$(MAGENTA)Cleaned OBJECTS for ft_printf!$(DEF_COLOR)"
 	
 fclean: clean
 	$(RM) $(NAME)
-	@echo "$(MAGENTA)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
+	@echo "$(MAGENTA)Cleaned NAME for ft_printf!$(DEF_COLOR)"
 
 
 re: fclean all

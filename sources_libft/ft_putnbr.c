@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmassol <cmassol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 14:07:39 by cmassol           #+#    #+#             */
-/*   Updated: 2024/08/01 11:24:10 by cmassol          ###   ########.fr       */
+/*   Created: 2024/08/25 16:43:02 by cmassol           #+#    #+#             */
+/*   Updated: 2024/08/25 16:43:09 by cmassol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putnbr(int nbr)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	if (nbr < 0)
+	{
+		ft_putchar('-', fd);
+		nbr = nbr * -1;
+		ft_putnbr(nbr, fd);
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10, fd);
+		ft_putchar(nbr % 10 + '0', fd);
+	}
+	else if (nbr < 10)
+		ft_putchar(nbr + '0', fd);
 }
